@@ -56,14 +56,29 @@ function findLargest(numOne: number, numTwo: number, numThree: number): number {
         return numOne;
     } else if (numTwo >= numOne && numTwo >= numThree) {
         return numTwo;
-    } else 
+    } else
         return numThree;
-    }
+}
 console.log(findLargest(100, 100, 10));
 
 
-// Write a function “convertToCentimeters” which receives parameter “inches” and add default value it and convert to centimeters.
+// Write a function “convertToCentimeters” which receives parameter “inches” and add default value to it and convert to centimeters.
 // Log the result with default parameter and with passed parameter.
+
+function convertToCentimeters(inches: number = 2): number {
+    return inches * 2.54;
+}
+console.log(convertToCentimeters());
+console.log(convertToCentimeters(5));
 
 // Write a function named “calculateArea” that takes a required width parameter and an optional height parameter.
 // If height is not provided, assume the shape is a square.
+
+function calculateArea(width: number, height?: number): number {
+    if (height) {
+        return width * height;
+    } else
+        return width * width;
+}
+console.log(calculateArea(2, 3));
+console.log(calculateArea(2));
