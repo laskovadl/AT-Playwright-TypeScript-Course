@@ -61,21 +61,46 @@ interface Product {
 }
 
 async function getData (): Promise<Product> {
+   try { 
     const response = await fetch("https://fakestoreapi.com/products/1");
     const data: Product = await response.json();
-        return data;
+    console.log(data);
+}   catch (error: unknown) {
+        console.error(error);
+    }
+}
 
     // console.log(`Title: ${data.title}`);
     // console.log(`Price: ${data.price}`);
     // console.log(`Category: ${data.category}`);
-}
+
 //getData();
 
-try {
-    const jsonData = JSON.parse('{"valid: true}')
-    console.log(jsonData);
-} catch (err) {
-    console.error("Invalid JSON format!", err);
-} finally {
-    console.error("JSON parser ready");
-}
+// try {
+//     const jsonData = JSON.parse('{"valid: true}')
+//     console.log(jsonData);
+// } catch (err) {
+//     console.error("Invalid JSON format!", err);
+// } finally {
+//     console.error("JSON parser ready");
+// }
+
+// try/catch/finally exercise
+
+function divideNumbers(numOne: number, numTwo: number) {
+    try {
+      if (numTwo === 0) {
+        throw new Error("Cannot divide by zero!");
+      } else {
+      const result: number = numOne / numTwo;
+      console.log(`Result ${result}`);
+    } 
+    } catch (err: unknown) {
+      console.error(`Error: ${err}`)
+    } finally {
+      console.log("Operation finished")
+    }
+};
+divideNumbers(20, 0)
+
+export {};
